@@ -2,6 +2,7 @@ package com.zillion.palindrome.controllers;
 
 
 import com.zillion.palindrome.model.Users;
+import com.zillion.palindrome.util.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,20 +19,26 @@ public class UserService {
     @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
+    Worker worker;
+
     @RequestMapping("/{usersId}")
-    public Users[] getUsers(String userId, @PathVariable String usersId)  {
-        ResponseEntity<Users[]> responseEntity =
-                //Here we are fetching the raw JSON
-                restTemplate.getForEntity("https://jsonplaceholder.typicode.com/users", Users[].class);
-
-                Users[] usersArray = responseEntity.getBody();
-
-                return usersArray;
+    public Users getUsers(String userId, @PathVariable String usersId)  {
 
 
-//                return Arrays.stream(usersArray)
-//                        .map(Users::getName)
-//                        .collect(Collectors.toList());
+            //Here we are fetching the  JSON from external website
+            ResponseEntity<Users[]> responseEntity =
+
+
+                    restTemplate.getForEntity("https://jsonplaceholder.typicode.com/users", Users[].class);
+
+            //and mapping to an array of Users
+            Users[] usersArray = responseEntity.getBody();
+
+
+           //calling function from the worker class to find a valid user.
+            return worker.findUser(usersArray, usersId);
+
 
 
     }

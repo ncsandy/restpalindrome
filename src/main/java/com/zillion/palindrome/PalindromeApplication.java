@@ -1,5 +1,6 @@
 package com.zillion.palindrome;
 
+import com.zillion.palindrome.util.Worker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,10 @@ public class PalindromeApplication {
 	@Bean
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
+	}
+	@Bean
+	public Worker worker(){
+		return new Worker();
 	}
 
 

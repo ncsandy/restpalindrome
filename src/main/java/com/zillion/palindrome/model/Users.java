@@ -6,19 +6,28 @@ public class Users {
     @JsonProperty("name")
     private String name;
     @JsonProperty("id")
-    private int id;
+    private String id;
 
     private long count;
 
-    public Users(String name, int id, long count) {
-        this.name = name;
-        this.id = id;
-        this.count = count;
-    }
 
     public Users() {
 
     }
+
+    public Users(String name,long count, String id) {
+        this.name = name;
+        this.count = count;
+        this.id = id;
+
+    }
+
+    public Users(String name, long count) {
+        this.name = name;
+        this.count = count;
+    }
+
+
 
     public String getName() {
         return name;
@@ -28,11 +37,11 @@ public class Users {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
