@@ -45,17 +45,19 @@ public class Worker {
         return jsonCreator(foundUser);
 }
 
-public ObjectNode jsonCreator(Users user){
+public ObjectNode jsonCreator(Users user) {
+    if (user != null) {
+        //we need this mapper to create the customer node with our info
+        ObjectNode objectNode = mapper.createObjectNode();
+        //populating the JSON with the name
+        objectNode.put("name", user.getName());
+        //population the JSON with the count
+        objectNode.put("count", user.getCount());
+        //return the custom node ready for deployment to the rest controller
+        return objectNode;
+    }
+    return null;
 
-      //we need this mapper to create the customer node with our info
-    ObjectNode objectNode = mapper.createObjectNode();
-   //populating the JSON with the name
-    objectNode.put("name", user.getName());
-    //population the JSON with the count
-    objectNode.put("count",user.getCount());
-    //return the custom node ready for deployment to the rest controller
-    return objectNode;
+
 }
-
-
 }
