@@ -1,8 +1,11 @@
 package com.zillion.palindrome.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zillion.palindrome.util.PaldindromeSolver;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Users {
+
     @JsonProperty("name")
     private String name;
     @JsonProperty("id")
@@ -46,6 +49,7 @@ public class Users {
     }
 
     public long getCount() {
+
         return count;
     }
 

@@ -1,7 +1,10 @@
 package com.zillion.palindrome.controllers;
 
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.zillion.palindrome.PalindromeApplication;
 import com.zillion.palindrome.model.Users;
+import com.zillion.palindrome.util.PaldindromeSolver;
 import com.zillion.palindrome.util.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +25,10 @@ public class UserService {
     @Autowired
     Worker worker;
 
+
+
     @RequestMapping("/{usersId}")
-    public Users getUsers(String userId, @PathVariable String usersId)  {
+    public ObjectNode getUsers(String userId, @PathVariable String usersId)  {
 
 
             //Here we are fetching the  JSON from external website
@@ -37,7 +42,8 @@ public class UserService {
 
 
            //calling function from the worker class to find a valid user.
-            return worker.findUser(usersArray, usersId);
+        assert usersArray != null;
+        return worker.findUser(usersArray, usersId);
 
 
 

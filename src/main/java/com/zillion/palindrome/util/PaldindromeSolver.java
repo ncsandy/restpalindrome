@@ -5,13 +5,16 @@ import java.util.Locale;
 
 public class PaldindromeSolver {
 
-        public int stringWorker(String name){
+    public PaldindromeSolver() {
+    }
+
+    public long stringWorker(String name){
             //Here we need to find out stringLength for the formula
             int stringLength = 0;
             //We also need to find out the amount of uniqueChar for the formula as well
             int unqiueChar = 0;
             //total palindromes that can be made
-            int count = 0;
+            long count = 0;
 
             //set the parameters to strip from the string
             name = name.replaceAll("[,;.\\s]", "");
@@ -43,16 +46,16 @@ public class PaldindromeSolver {
         return uniqueChar.size();
     }
 
-    public int counterCalc(int uChars, int length){
+    public long counterCalc(int uChars, int length){
         //the count for the palindromes that could be made
-        int count = 0;
+        long count = 0;
         //if the length is not even then we add one to it
         if (length % 2 != 0) {
             length++;
         }
         //If the length is even then there is no need ot plus it
         length /= 2;
-        count = (int) Math.pow(uChars,length);
+        count = (long) Math.pow(uChars,length);
 
         return count;
 
