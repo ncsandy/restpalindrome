@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class PalindromeApplication {
 
-	//creating a usuable instance of the RestTemplate
+	//creating our beans for reuse
 	@Bean
 	public RestTemplate restTemplate(){
 		return new RestTemplate();

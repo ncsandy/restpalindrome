@@ -10,6 +10,7 @@ public class Worker {
     //inject it here so we can use it
     @Autowired
     PaldindromeSolver solver;
+    //inject it here so we can use it
     @Autowired
     ObjectMapper mapper;
 
@@ -45,9 +46,14 @@ public class Worker {
 }
 
 public ObjectNode jsonCreator(Users user){
+
+      //we need this mapper to create the customer node with our info
     ObjectNode objectNode = mapper.createObjectNode();
+   //populating the JSON with the name
     objectNode.put("name", user.getName());
+    //population the JSON with the count
     objectNode.put("count",user.getCount());
+    //return the custom node ready for deployment to the rest controller
     return objectNode;
 }
 
