@@ -2,9 +2,7 @@ package com.zillion.palindrome.controllers;
 
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.zillion.palindrome.PalindromeApplication;
 import com.zillion.palindrome.model.Users;
-import com.zillion.palindrome.util.PaldindromeSolver;
 import com.zillion.palindrome.util.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

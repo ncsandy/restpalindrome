@@ -3,9 +3,9 @@ package com.zillion.palindrome.util;
 import java.util.HashSet;
 import java.util.Locale;
 
-public class PaldindromeSolver {
+public class PalindromeSolver {
 
-    public PaldindromeSolver() {
+    public PalindromeSolver() {
     }
 
     public long stringWorker(String name){
@@ -53,7 +53,7 @@ public class PaldindromeSolver {
         if (length % 2 != 0) {
             length++;
         }
-        //If the length is even then there is no need ot plus it
+        //If the length is even then there is no need to plus it
         length /= 2;
         count = (long) Math.pow(uChars,length);
 

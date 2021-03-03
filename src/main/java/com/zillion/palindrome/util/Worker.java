@@ -3,13 +3,12 @@ package com.zillion.palindrome.util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.zillion.palindrome.model.Users;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Worker {
     //inject it here so we can use it
     @Autowired
-    PaldindromeSolver solver;
+    PalindromeSolver solver;
     //inject it here so we can use it
     @Autowired
     ObjectMapper mapper;
@@ -47,7 +46,7 @@ public class Worker {
 
 public ObjectNode jsonCreator(Users user) {
     if (user != null) {
-        //we need this mapper to create the customer node with our info
+        //we need this mapper to create the user node with our info
         ObjectNode objectNode = mapper.createObjectNode();
         //populating the JSON with the name
         objectNode.put("name", user.getName());
